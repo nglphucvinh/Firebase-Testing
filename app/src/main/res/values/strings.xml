@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Firebase Testing 2</string>
+    <string name="button_label">Write to Database</string>
+    <string name="button_read">Read from Database</string>
+    <string name="read_text">Data from Database will be shown here.</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <array name="locations">
+        <item>Ha Noi</item>
+        <item>Ho Chi Minh</item>
+        <item>Da nang</item>
+    </array>
+</resources>

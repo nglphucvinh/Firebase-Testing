@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        databaseParam = FirebaseDatabase.getInstance().getReference("p");
+        databaseParam = FirebaseDatabase.getInstance().getReference("params");
 
         final String ID = databaseParam.push().getKey(); // This is for constant ID, put this in add Param, and remove final if you want to add many
 
 //        ((GlobalKey) this.getApplication()).setKey(id);
-arams
+
         editTextName = (EditText) findViewById(R.id.editTextName);
         buttonWrite = (Button) findViewById(R.id.buttonWrite);
         spinnerLocations = (Spinner) findViewById(R.id.spinnerLocations);

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadActivity extends AppCompatActivity {
+
+    public static final String PARAM_ID = "paramid";
+    public static final String PARAM_NAME = "paramname";
 
     DatabaseReference databaseParam;
 
@@ -48,6 +53,32 @@ public class ReadActivity extends AppCompatActivity {
         listViewParams = (ListView) findViewById(R.id.listViewParams);
 
         paramList = new ArrayList<>();
+
+//        listViewParams.setOnClickListener(new AdapterView.OnItemClickListener(){
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i. long l){
+//
+//            }
+//
+//        });
+        listViewParams.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //getting the selected param
+                Param param = paramList.get(i);
+
+                //creating an intent
+                Intent intent = new Intent(getApplicationContext(), AddItemActivity.class);
+
+                //putting param name and id to intent
+                intent.putExtra(PARAM_ID, param.getParamID());
+                intent.putExtra(PARAM_NAME, param.getParamName());
+
+                //starting the activity with intent
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -82,7 +113,7 @@ public class ReadActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                // Log.w(this, "Failed to read value.", error.toException());
             }
         });
     }

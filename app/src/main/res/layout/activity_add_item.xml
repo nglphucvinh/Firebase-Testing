@@ -28,7 +28,7 @@
         android:id="@+id/seekBarRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="5"/>
+        android:max="10"/>
 
     <Button
         android:id="@+id/buttonAddItems"
@@ -52,7 +52,7 @@
         <!--android:text="Tap on an Artist tp add and view track"-->
         <!--android:textAlignment="center"/>-->
     <ListView
-        android:id="@+id/listViewParams"
+        android:id="@+id/listViewItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

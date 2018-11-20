@@ -10,33 +10,31 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ParamList extends ArrayAdapter<Param> {
-
+public class ItemList extends ArrayAdapter<Item> {
     private Activity context;
-    private List<Param> paramList;
+    private List<Item> itemList;
 
-    public ParamList(Activity context, List<Param> paramList){
-        super(context, R.layout.list_layout, paramList); //ArrayAdapter constructor
+    public ItemList(Activity context, List<Item> itemList){
+        super(context, R.layout.list_layout, itemList); //ArrayAdapter constructor
         this.context = context;
-        this.paramList = paramList;
+        this.itemList = itemList;
     }
 
     @NonNull //only this view
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Param param = paramList.get(position);
+        Item item = itemList.get(position);
         // Inflate the view
         LayoutInflater inflater = context.getLayoutInflater();
-        View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
+        View listViewItem = inflater.inflate(R.layout.list_item_layout, null, true);
         // Lookup view for data population
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewName);
-        TextView textViewLocation = (TextView) listViewItem.findViewById(R.id.textViewLocation);
+        TextView textViewRating = (TextView) listViewItem.findViewById(R.id.textViewRating);
         // Populate the data into the template view susing the data object
-        textViewName.setText(param.getParamName());
-        textViewLocation.setText(param.getParamLocation());
+        textViewName.setText(item.getItemName());
+        textViewRating.setText(String.valueOf(item.getItemRating()));
         //Return the completed view to render on screen
         return listViewItem;
     }
-
 }
